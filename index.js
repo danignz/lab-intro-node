@@ -70,9 +70,24 @@ class SortedList {
     }
   }
 
-  sum() {}
+  sum() {
+    if (this.length === 0) {
+      return 0;
+    } else {
+      const total = this.items.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue;
+      });
+      return total;
+    }
+  }
 
-  avg() {}
+  avg() {
+    if (this.length === 0) {
+      throw new Error("EmptySortedList");
+    } else {
+      return this.sum() / this.length;
+    }
+  }
 }
 
 module.exports = SortedList;
